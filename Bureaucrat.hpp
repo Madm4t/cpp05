@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <iostream>
 #include <exception>
 
@@ -19,4 +20,19 @@ public:
 	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+
+	class GradeTooHighException : public std::exception {
+	public:
+		virtual const char* what() const noexcept override {
+			return "Bureaucrat grade too high!";
+		}
+	};
+	class GradeTooLowException : public std::exception {
+	public:
+		virtual const char* what() const noexcept override {
+			return "Bureaucrat grade too low!";
+		}
+	};
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
