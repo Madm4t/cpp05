@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 int main() {
 	try {
 		Bureaucrat alice("Alice", 50);
-		Form tax_a("TaxForm", 45, 10);
+		AForm tax_a("TaxForm", 45, 10);
 
 		std::cout << alice << '\n'
 					<< tax_a   << '\n';
@@ -27,7 +27,7 @@ int main() {
 	std::cout << std::endl;
 	try {
 		Bureaucrat bob("Bob", 150);
-		Form tax_b("BobForm", 151, 10);
+		AForm tax_b("BobForm", 151, 10);
 
 		std::cout << bob << '\n'
 					<< tax_b << '\n';

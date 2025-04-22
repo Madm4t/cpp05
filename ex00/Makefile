@@ -1,4 +1,4 @@
-NAME		= Bureaucrat
+NAME		= Main
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++17
 
