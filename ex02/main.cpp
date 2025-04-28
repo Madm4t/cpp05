@@ -1,50 +1,71 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotmyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main() {
+	std::cout << "--- ShrubberyCreationform test ---\n";
 	try {
-		Bureaucrat alice("Alice", 50);
-		AForm tax_a("TaxForm", 45, 10);
+		Bureaucrat alpha("Alpha", 146);
+		ShrubberyCreationForm shrub("test1");
 
-		std::cout << alice << '\n'
-					<< tax_a   << '\n';
-
-		alice.signForm(tax_a);
-		// not signed yet → grade 50 > required 45
-		alice.incrementGrade(); // 49
-		alice.incrementGrade(); // 48
-		alice.incrementGrade(); // 47
-		alice.incrementGrade(); // 46
-		alice.incrementGrade(); // 45
-
-		alice.signForm(tax_a);
-		std::cout << tax_a << '\n';
+		std::cout << alpha << "\n" << shrub << "\n";
+		alpha.signForm(shrub);		// 146 > 145 -> NOK too low to sign
+		alpha.executeForm(shrub);	// 146 > 137 -> too low to execute
+	
+		alpha.incrementGrade();
+		alpha.signForm(shrub);
+		
+		for (int i = 0; i < 8; ++i)
+			alpha.incrementGrade();
+		std:: cout << alpha << "\n";
+		alpha.executeForm(shrub);	// now grade is 137 -> should work
 	}
 	catch (std::exception &e) {
-		std::cerr << "Exception: " << e.what() << '\n';
+		std::cerr << "Error in shrubbery test: " << e.what() << "\n";
 	}
-	std::cout << std::endl;
+
+	std::cout << "\n--- RobotmyRequestForm---\n";
 	try {
-		Bureaucrat bob("Bob", 150);
-		AForm tax_b("BobForm", 151, 10);
+		Bureaucrat beta("Beta", 73);
+		RobotmyRequestForm robot("MegaMan");
 
-		std::cout << bob << '\n'
-					<< tax_b << '\n';
+		std::cout << beta << "\n" << robot << "\n";
+		beta.signForm(robot);		//73 > 72 -> NOK too low to sign
+		beta.executeForm(robot);	//50 > 45 -> too low
 
-		bob.signForm(tax_b);
-		// not signed yet → grade 50 > required 45
-		bob.incrementGrade(); // 49
-		bob.incrementGrade(); // 48
-		bob.incrementGrade(); // 47
-		bob.incrementGrade(); // 46
-		bob.incrementGrade(); // 45
-
-		bob.signForm(tax_b);
-		std::cout << tax_b << '\n';
+		beta.incrementGrade();
+		beta.signForm(robot);
+		for (int i = 0; i < 27; ++i)
+			beta.incrementGrade();
+			std::cout << beta << "\n";
+		beta.executeForm(robot);
 	}
 	catch (std::exception &e) {
-		std::cerr << "Exception: " << e.what() << '\n';
+		std::cerr << "Error in robottomy test: " << e.what() << "\n";
+	}
+
+	std::cout << "\n--- PresidentailPardonForm Test---\n";
+	try {
+		Bureaucrat zaphod("Zaphod", 26);
+		PresidentialPardonForm pardon("Trump");
+
+		std::cout << zaphod << "\n" << pardon << "\n";
+		zaphod.signForm(pardon);	// 26 <= 25 -> NOK too low to sign
+		zaphod.executeForm(pardon);	// 26 > 5 -> too low
+
+		zaphod.incrementGrade();
+		zaphod.signForm(pardon);
+
+		for (int i = 0; i < 21; ++i)
+			zaphod.incrementGrade();
+		std::cout << zaphod << "\n";
+
+		zaphod.executeForm(pardon);
+	}
+	catch (std::exception &e) {
+		std::cerr << "Error in pardon test: " << e.what() << "\n";
 	}
 	return 0;
 }
