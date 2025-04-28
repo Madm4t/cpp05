@@ -3,7 +3,7 @@
 #include <string>
 #include "AForm.hpp"
 
-class RobotmyRequestForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 private:
 	std::string const _target;
@@ -12,8 +12,8 @@ protected:
 	void action() const override;
 
 public:
-	explicit RobotmyRequestForm(const std::string& target);
-	RobotmyRequestForm(const RobotmyRequestForm& other) = delete;
-	RobotmyRequestForm &operator=(const RobotmyRequestForm& other) = delete;
-	~RobotmyRequestForm() override;
+	explicit RobotomyRequestForm(const std::string& target);
+	RobotomyRequestForm(const RobotomyRequestForm& other) = delete;
+	RobotomyRequestForm &operator=(const RobotomyRequestForm& other) = delete;
+	~RobotomyRequestForm() override;
 };

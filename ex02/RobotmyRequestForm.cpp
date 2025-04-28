@@ -1,18 +1,21 @@
 #include "RobotmyRequestForm.hpp"
+#include <cstdlib>
 
-RobotmyRequestForm::RobotmyRequestForm(const std::string& target)
-	: AForm("RobotmyrequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+	: AForm("RobotomyRequestForm", 72, 45)
 	, _target(target)
 {}
 
-RobotmyRequestForm::~RobotmyRequestForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "RobotmyRequest Form destructed." << std::endl;
+	//std::cout << "RobotomyRequest Form destructed." << std::endl;
 }
 
-void RobotmyRequestForm::action() const {
-	std::cout	<< "*makes drilling noise* " 
-				<< _target
-				<< " has been robotomized successfully 50% of the time."
-				<< std::endl;
+void RobotomyRequestForm::action() const {
+	std::cout	<< "*makes drilling noise*\n";
+	if (std::rand() % 2) 
+		std::cout << _target << " has been robotomized successfully.\n";
+	else
+		std::cout << _target << " robotomy failed.\n";
+	
 }

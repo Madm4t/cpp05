@@ -3,8 +3,10 @@
 #include "RobotmyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int main() {
+	std::srand(std::time(nullptr)); //creates seed with current time
 	std::cout << "--- ShrubberyCreationform test ---\n";
 	try {
 		Bureaucrat alpha("Alpha", 146);
@@ -29,7 +31,7 @@ int main() {
 	std::cout << "\n--- RobotmyRequestForm---\n";
 	try {
 		Bureaucrat beta("Beta", 73);
-		RobotmyRequestForm robot("MegaMan");
+		RobotomyRequestForm robot("MegaMan");
 
 		std::cout << beta << "\n" << robot << "\n";
 		beta.signForm(robot);		//73 > 72 -> NOK too low to sign

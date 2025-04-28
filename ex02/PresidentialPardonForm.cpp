@@ -7,7 +7,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm destructed." << std::endl;
+	//std::cout << "PresidentialPardonForm destructed." << std::endl;
 }
 
 void PresidentialPardonForm::action() const {

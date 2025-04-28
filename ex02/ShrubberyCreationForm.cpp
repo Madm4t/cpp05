@@ -9,7 +9,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm destructed." << std::endl;
+	//std::cout << "ShrubberyCreationForm destructed." << std::endl;
 }
 
 
